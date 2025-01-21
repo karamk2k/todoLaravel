@@ -19,7 +19,7 @@ class TodoAuth
     {
         // dd($request->id);
         if(Auth::check()){
-            $todo = Todo::where('id', $request->id)->first();
+            $todo = Todo::where('id', $request->todo->id)->first();
             if($todo->user_id !== Auth::id()){
                 return redirect()->route('home')->with('error', 'You are not authorized to access this todo');
             }

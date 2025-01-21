@@ -22,7 +22,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('TodoAuth')->group(function () {
-    Route::put('/edit/{id}', [TodoList::class, 'edit'])->name('todo.edit');
-    Route::delete('/delete/{id}', [TodoList::class, 'delete'])->name('todo.delete');
+    Route::put('/edit/{todo}', [TodoList::class, 'edit'])->name('todo.edit');
+    Route::delete('/delete/{todo}', [TodoList::class, 'delete'])->name('todo.delete');
 });
 

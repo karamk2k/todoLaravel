@@ -28,7 +28,7 @@
 <div id="editModal{{ $todo->id }}" class="fixed inset-0 hidden bg-black bg-opacity-50 z-50">
     <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 dark:bg-gray-800 rounded-lg p-6 w-80 shadow-md">
         <h2 class="text-lg font-semibold text-center text-white">Edit Todo</h2>
-        <form action="{{ route('todo.edit', $todo->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('todo.edit', $todo) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <input type="text" name="title" value="{{ $todo->title }}"
@@ -39,7 +39,7 @@
              <img src="{{ Storage::url('uploads/'.$todo->FileName) }}" alt="Todo Image" class="mb-4">
              
              @endif
-             <input type="file" name="file" class="w-full mt-3 p-2 border rounded dark:bg-gray-700 dark:text-white" value="{{$todo->FileName}}">
+                          <input type="file" name="file" class="w-full mt-3 p-2 border rounded dark:bg-gray-700 dark:text-white" value="{{$todo->FileName}}">
 
 
             <div class="flex justify-between mt-4">
@@ -62,7 +62,7 @@
         <p class="text-center text-white mt-3">Are you sure you want to delete this todo?</p>
 
         <div class="flex justify-between mt-4">
-            <form action="{{ route('todo.delete', $todo->id) }}" method="POST">
+            <form action="{{ route('todo.delete', $todo) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
